@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <div class="form-group">
+    <label for="zipcode">Enter your zip code</label>
+    <input type="text" class="form-control" id="zipcode" ng-model="newLoc" placeholder="Zipcode">
+  </div>
+  <button class="btn-sm btn-success" type="submit" ng-click="addLocation(newLoc)">
+    Add location <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+
+<div class="row marketing well" ng-repeat="location in locations">
+
+  <div class="col-md-6">
+    <h3>{{location.name}} ({{location.zip}})</h3>
+    <p>
+    <h4>{{location.weather.main}}</h4> {{location.weather.description}}
+    </p>
+    <p>
+    <h4>Temperatures today</h4>
+    Current {{location.temp.temp}} - Max {{location.temp.temp_max}} - Min {{location.temp.temp_min}}
+    </p>
+  </div>
+
+  <div class="col-md-6">
+    <a class="close" ng-click="removeLocation(location.zip)">&times;</a>
+    <img ng-src="{{getWeatherIcon(location.weather)}}" />
+  </div>
+
+</div>
