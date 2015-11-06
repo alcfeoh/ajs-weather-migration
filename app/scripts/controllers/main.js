@@ -8,24 +8,21 @@
  * Controller of the weatherApp
  */
 angular.module('weatherApp')
-  .controller('MainCtrl', function ($http, $scope) {
-    $scope.locations = [ ];
+  .controller('MainCtrl', function ($http, $scope, LocationsService) {
+
+    $scope.locations = LocationsService.getLocations();
 
     $scope.addLocation = function(zipcode){
       $http.get("http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&units=metric&APPID=5a4b2d457ecbef9eb2a71e480b947604").
         then(function(response) {
           var newLocation = {zip: zipcode, weather: response.data.weather[0], temp: response.data.main
                             , name: response.data.name, id: response.data.id};
-          $scope.locations.push(newLocation);
+          LocationsService.addLocation(newLocation);
       });
     }
 
     $scope.removeLocation = function(zipcode){
-      angular.forEach($scope.locations, function(value, index) {
-          if (value.zip === zipcode)
-            $scope.locations.splice(index, 1);
-        }
-      );
+      LocationsService.removeLocation(zipcode);
     }
 
     $scope.getWeatherIcon = function(forecast){
