@@ -1,6 +1,6 @@
-<div ng-controller="ForecastCtrl">
+<div ng-controller="ForecastCtrl as fcast">
 
-  <div class="marketing well" ng-repeat="location in locations" style="padding: 20px;">
+  <div class="marketing well" ng-repeat="location in main.locations" style="padding: 20px;">
     <div>
       <h3>{{location.name}} ({{location.zip}})</h3>
     </div>
@@ -12,7 +12,7 @@
       </div>
 
       <div class="col-md-6">
-        <img style="height: 80px;" ng-src="{{getWeatherIcon(dailyForecast.weather[0])}}" />
+        <img style="height: 80px;" ng-src="{{main.getWeatherIcon(dailyForecast.weather[0])}}" />
       </div>
 
     </div>
