@@ -22,7 +22,9 @@ angular
         templateUrl: 'views/main.html'
       })
       .when('/forecast', {
-        templateUrl: 'views/forecast.html'
+        templateUrl: 'views/forecast.html',
+        controller:  'ForecastCtrl',
+        controllerAs: 'fcast'
       })
       .otherwise({
         redirectTo: '/'
