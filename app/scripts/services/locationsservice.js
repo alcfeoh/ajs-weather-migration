@@ -1,30 +1,22 @@
-'use strict';
-
-/**
- * @ngdoc service
- * @name weatherApp.LocationsService
- * @description
- * # LocationsService
- * Service in the weatherApp.
- */
-angular.module('weatherApp')
-  .service('LocationsService', function () {
-    var vm = this;
-    vm.locations = [];
-
-    vm.addLocation = function(location) {
-        vm.locations.push(location);
+var LocationsService = (function () {
+    function LocationsService() {
+        this.locations = [];
     }
-
-    vm.getLocations = function() {
-      return vm.locations;
-    }
-
-    vm.removeLocation = function(zipcode) {
-      angular.forEach(vm.locations, function (value, index) {
-          if (value.zip === zipcode)
-            vm.locations.splice(index, 1);
-        }
-      );
-    }
-  });
+    LocationsService.prototype.addLocation = function (location) {
+        this.locations.push(location);
+    };
+    LocationsService.prototype.getLocations = function () {
+        return this.locations;
+    };
+    LocationsService.prototype.removeLocation = function (zipcode) {
+        angular.forEach(this.locations, function (value, index) {
+            if (value.zip === zipcode)
+                this.locations.splice(index, 1);
+        });
+    };
+    return LocationsService;
+})();
+angular
+    .module('weatherApp')
+    .service('LocationsService', LocationsService);
+//# sourceMappingURL=locationsservice.js.map
