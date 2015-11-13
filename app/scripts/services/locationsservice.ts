@@ -11,11 +11,10 @@ class LocationsService {
     }
 
     removeLocation(zipcode: string) {
-        angular.forEach(this.locations, function (value, index) {
-                if (value.zip === zipcode)
-                    this.locations.splice(index, 1);
-            }
-        );
+        for (var i in this.locations) {
+                if (this.locations[i].zip === zipcode)
+                    this.locations.splice(i, 1);
+        }
     }
 }
 
