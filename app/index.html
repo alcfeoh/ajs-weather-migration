@@ -82,14 +82,13 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/forecast.js"></script>
-        <script src="scripts/services/locationsservice.js"></script>
-        <script src="scripts/directives/currentconditions.js"></script>
-        <script src="scripts/directives/forecast.js"></script>
-        <script src="scripts/directives/addlocation.js"></script>
-        <!-- endbuild -->
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+      System.config({
+        packages: {'js': {defaultExtension: 'js'}}
+      });
+      System.import('js/app');
+    </script>
 </body>
 </html>
