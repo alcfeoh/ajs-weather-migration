@@ -1,4 +1,4 @@
-'use strict';
+import LocationsService from '../services/locationsservice';
 
 class MainCtrl {
 
@@ -42,5 +42,5 @@ class MainCtrl {
 
 }
 
-angular.module('weatherApp')
-    .controller('MainCtrl', ['$http', 'LocationsService', MainCtrl]);
+MainCtrl.$inject = ['$http', 'LocationsService'];
+export default MainCtrl;

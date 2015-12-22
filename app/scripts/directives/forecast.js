@@ -6,8 +6,7 @@
  * @description
  * # forecast
  */
-angular.module('weatherApp')
-  .directive('forecast', function () {
+function forecast() {
     return {
       templateUrl: 'views/forecastDirective.html',
       restrict: 'E',
@@ -16,4 +15,4 @@ angular.module('weatherApp')
         'iconSrc': '='
       }
     };
-  });
+};

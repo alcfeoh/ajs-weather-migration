@@ -6,8 +6,7 @@
  * @description
  * # addLocation
  */
-angular.module('weatherApp')
-  .directive('addLocation', function () {
+function addLocation() {
     return {
       templateUrl: 'views/addLocation.html',
       restrict: 'E',
@@ -15,4 +14,4 @@ angular.module('weatherApp')
         'onAdd' : '='
       }
     };
-  });
+  };

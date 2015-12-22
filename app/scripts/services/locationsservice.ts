@@ -18,7 +18,5 @@ class LocationsService {
     }
 }
 
-angular
-    .module('weatherApp')
-    .service('LocationsService', LocationsService);
+export default LocationsService;
 

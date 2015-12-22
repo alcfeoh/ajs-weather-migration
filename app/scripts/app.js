@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+export default angular
   .module('weatherApp', [
     'ngAnimate',
     'ngResource',

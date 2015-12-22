@@ -6,8 +6,7 @@
  * @description
  * # currentConditions
  */
-angular.module('weatherApp')
-  .directive('currentConditions', function () {
+function currentConditions() {
     return {
       templateUrl: 'views/currentConditions.html',
       restrict: 'E',
@@ -17,4 +16,4 @@ angular.module('weatherApp')
         'iconSrc': '='
       }
     };
-  });
+  };
