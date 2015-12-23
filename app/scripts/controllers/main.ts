@@ -1,4 +1,6 @@
 import LocationsService from '../services/locationsservice';
+import {Component} from 'angular2/core';
+import {Observable} from 'rxjs';
 
 class MainCtrl {
 

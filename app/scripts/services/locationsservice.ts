@@ -1,3 +1,6 @@
+import {Injectable} from 'angular2/core';
+
+@Injectable()
 class LocationsService {
 
     public locations:Array = [];

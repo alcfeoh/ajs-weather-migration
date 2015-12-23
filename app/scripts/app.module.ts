@@ -8,8 +8,11 @@ import forecast from './directives/forecast';
 import addLocation from './directives/addlocation';
 import currentConditions from './directives/currentconditions';
 import {UpgradeAdapter} from 'angular2/upgrade';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 const upgradeAdapter = new UpgradeAdapter();
+upgradeAdapter.addProvider(HTTP_PROVIDERS);
+upgradeAdapter.addProvider(LocationsService);
 
 angular
   .module('weatherApp', [
@@ -20,7 +23,7 @@ angular
     'ngTouch'
   ])
   .config(configure)
-  .service('LocationsService', LocationsService)
+  .service('LocationsService', upgradeAdapter.downgradeNg2Provider(LocationsService))
   .controller('MainCtrl', MainCtrl)
   .controller('ForecastCtrl', ForecastCtrl)
   .directive('addLocation', addLocation)
@@ -43,5 +46,6 @@ function configure($routeProvider) {
         redirectTo: '/'
       });
   };
+
 
 upgradeAdapter.bootstrap(document.documentElement, ['weatherApp']);
