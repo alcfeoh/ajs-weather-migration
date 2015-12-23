@@ -7,6 +7,9 @@ import MainCtrl from './controllers/main';
 import forecast from './directives/forecast';
 import addLocation from './directives/addlocation';
 import currentConditions from './directives/currentconditions';
+import {UpgradeAdapter} from 'angular2/upgrade';
+
+const upgradeAdapter = new UpgradeAdapter();
 
 angular
   .module('weatherApp', [
@@ -40,3 +43,5 @@ function configure($routeProvider) {
         redirectTo: '/'
       });
   };
+
+upgradeAdapter.bootstrap(document.documentElement, ['weatherApp']);
