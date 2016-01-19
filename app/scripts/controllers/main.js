@@ -7,11 +7,13 @@
  * # MainCtrl
  * Controller of the weatherApp
  */
-function MainCtrl($http, $scope, LocationsService) {
+function MainCtrl($http, LocationsService) {
 
-    $scope.locations = LocationsService.getLocations();
+    var vm = this;
 
-    $scope.addLocation = function(zipcode){
+    vm.locations = LocationsService.getLocations();
+
+    vm.addLocation = function(zipcode){
       $http.get("http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+",us&units=metric&APPID=5a4b2d457ecbef9eb2a71e480b947604").
         then(function(response) {
           var newLocation = {zip: zipcode, weather: response.data.weather[0], temp: response.data.main
@@ -20,11 +22,11 @@ function MainCtrl($http, $scope, LocationsService) {
       });
     }
 
-    $scope.removeLocation = function(zipcode){
+    vm.removeLocation = function(zipcode){
       LocationsService.removeLocation(zipcode);
     }
 
-    $scope.getWeatherIcon = function(forecast){
+    vm.getWeatherIcon = function(forecast){
       var url = "https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-hdpi/";
       if (forecast.id >= 200 && forecast.id <= 232)
         return url + "art_storm.png";
