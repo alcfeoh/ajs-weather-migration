@@ -7,8 +7,7 @@
  * # LocationsService
  * Service in the weatherApp.
  */
-angular.module('weatherApp')
-    .service('LocationsService', function () {
+function LocationsService() {
         var vm = this;
         vm.locations = [];
 
@@ -27,4 +26,4 @@ angular.module('weatherApp')
                 }
             );
         }
-    });
+}

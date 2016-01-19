@@ -7,8 +7,7 @@
  * # MainCtrl
  * Controller of the weatherApp
  */
-angular.module('weatherApp')
-  .controller('MainCtrl', function ($http, $scope, LocationsService) {
+function MainCtrl($http, $scope, LocationsService) {
 
     $scope.locations = LocationsService.getLocations();
 
@@ -43,4 +42,4 @@ angular.module('weatherApp')
         return url + "art_clear.png";
 
     }
-  });
+  }
