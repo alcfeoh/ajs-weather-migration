@@ -1,7 +1,7 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../../typings/angularjs/angular-route.d.ts" />
-import LocationsService from './services/locationsservice';
+import {LocationsService} from './services/locationsservice';
 import ForecastCtrl from './controllers/forecast';
 import MainCtrl from './controllers/main';
 
