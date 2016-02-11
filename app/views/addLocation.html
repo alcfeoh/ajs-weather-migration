@@ -1,0 +1,9 @@
+<div class="jumbotron">
+    <div class="form-group">
+        <label for="zipcode">Enter your zip code</label>
+        <input type="text" class="form-control" id="zipcode" ng-model="$ctrl.newLoc" placeholder="Zipcode">
+    </div>
+    <button class="btn-sm btn-success" type="submit" ng-click="$ctrl.onAdd($ctrl.newLoc)">
+        Add location <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</div>
