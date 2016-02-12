@@ -32,9 +32,9 @@ function configure($routeProvider) {
             templateUrl: 'views/main.html'
         })
         .when('/forecast', {
-            templateUrl: 'views/forecast.html',
-            controller:  'ForecastCtrl',
-            controllerAs: 'fcast'
+             templateUrl: 'views/forecast.html',
+             controller:  'ForecastCtrl',
+             controllerAs: 'fcast'
         })
         .otherwise({
             redirectTo: '/'
