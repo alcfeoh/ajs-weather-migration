@@ -7,6 +7,11 @@ import {MainCtrl} from './controllers/main';
 import {currentConditions} from './components/currentconditions';
 import {forecast} from './components/forecast';
 import {addLocation} from './components/addLocation';
+import {UpgradeAdapter} from 'angular2/upgrade';
+
+const upgradeAdapter = new UpgradeAdapter();
+
+upgradeAdapter.addProvider(LocationsService);
 
 angular
     .module('weatherApp', [
@@ -17,7 +22,7 @@ angular
         'ngTouch'
     ])
     .config(configure)
-    .service('LocationsService', LocationsService)
+    .service('LocationsService', upgradeAdapter.downgradeNg2Provider(LocationsService))
     .controller('MainCtrl', MainCtrl)
     .controller('ForecastCtrl', ForecastCtrl)
     .component('currentConditions', currentConditions)
@@ -40,3 +45,5 @@ function configure($routeProvider) {
             redirectTo: '/'
         });
 };
+
+upgradeAdapter.bootstrap(document.documentElement, ['weatherApp']);
