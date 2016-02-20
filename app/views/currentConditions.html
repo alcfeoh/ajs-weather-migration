@@ -1,19 +1,17 @@
 <div class="row marketing well">
 
     <div class="col-md-6">
-        <h3>{{$ctrl.location.name}} ({{$ctrl.location.zip}})</h3>
-        <p>
-        <h4>{{$ctrl.location.weather.main}}</h4> {{$ctrl.location.weather.description}}
-        </p>
-        <p>
+        <h3>{{location.name}} ({{location.zip}})</h3>
+        <br/>
+        <h4>{{location.weather.main}}</h4> {{location.weather.description}}
+        <br/>
         <h4>Temperatures today</h4>
-        Current {{$ctrl.location.temp.temp}} - Max {{$ctrl.location.temp.temp_max}} - Min {{$ctrl.location.temp.temp_min}}
-        </p>
+        Current {{location.temp.temp}} - Max {{location.temp.temp_max}} - Min {{location.temp.temp_min}}
     </div>
 
     <div class="col-md-6">
-        <a class="close" ng-click="$ctrl.onDelete($ctrl.location.zip)">&times;</a>
-        <img ng-src="{{$ctrl.iconSrc($ctrl.location.weather)}}" />
+        <a class="close" (click)="onDeleteClick(location.zip)">&times;</a>
+        <img [src]="iconSrc(location.weather)" />
     </div>
 
 </div>

@@ -1,7 +1,7 @@
-<add-location on-add="main.addLocation">
+<add-location (on-add)="main.addLocation($event)">
 </add-location>
 
 <current-conditions ng-repeat="location in main.locations"
-                    location="location" on-delete="main.removeLocation"
-                    icon-src="main.getWeatherIcon" >
+                    [location]="location" (on-delete)="main.removeLocation($event)"
+                    [icon-src]="main.getWeatherIcon" >
 </current-conditions>

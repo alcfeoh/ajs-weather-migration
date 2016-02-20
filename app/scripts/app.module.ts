@@ -5,7 +5,7 @@ import {LocationsService} from './services/locationsservice';
 import {ForecastCtrl} from './controllers/forecast';
 import {MainCtrl} from './controllers/main';
 import {currentConditions} from './components/currentconditions';
-import {forecast} from './components/forecast';
+import {Forecast} from './components/forecast';
 import {addLocation} from './components/addLocation';
 import {UpgradeAdapter} from 'angular2/upgrade';
 
@@ -25,9 +25,9 @@ angular
     .service('LocationsService', upgradeAdapter.downgradeNg2Provider(LocationsService))
     .controller('MainCtrl', MainCtrl)
     .controller('ForecastCtrl', ForecastCtrl)
-    .component('currentConditions', currentConditions)
-    .component('forecast', forecast)
-    .component('addLocation', addLocation);
+    .directive('currentConditions', upgradeAdapter.downgradeNg2Component(currentConditions))
+    .directive('forecast', upgradeAdapter.downgradeNg2Component(Forecast))
+    .directive('addLocation', upgradeAdapter.downgradeNg2Component(addLocation));
 
 configure.$inject = ['$routeProvider'];
 
