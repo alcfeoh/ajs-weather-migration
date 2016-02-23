@@ -1,4 +1,5 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
+import {WeatherService} from "../services/weatherservice";
 
 @Component({
     selector: 'current-conditions',
@@ -6,11 +7,8 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 })
 export class currentConditions  {
 
-    @Output() onDelete = new EventEmitter();
-    @Input() iconSrc;
     @Input() location;
 
-    onDeleteClick(value) {
-        this.onDelete.emit(value);
+    constructor(private weatherService: WeatherService){
     }
 }

@@ -3,7 +3,7 @@
         <label for="zipcode">Enter your zip code</label>
         <input type="text" class="form-control" id="zipcode" #newLoc placeholder="Zipcode">
     </div>
-    <button class="btn-sm btn-success" type="submit" (click)="onClick(newLoc.value)">
+    <button class="btn-sm btn-success" type="submit" (click)="weatherService?.addLocation(newLoc.value)">
         Add location <span class="glyphicon glyphicon-plus"></span>
     </button>
 </div>

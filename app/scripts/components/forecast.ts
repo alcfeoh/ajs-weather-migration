@@ -1,4 +1,5 @@
 import {Component, Input} from 'angular2/core';
+import {WeatherService} from "../services/weatherservice";
 
 @Component({
     selector: 'forecast',
@@ -6,6 +7,9 @@ import {Component, Input} from 'angular2/core';
 })
 export class Forecast {
 
-    @Input() iconSrc;
     @Input() location;
+
+    constructor(private weatherService: WeatherService) {
+
+    }
 };

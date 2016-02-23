@@ -1,4 +1,5 @@
-import {Component,  Output, EventEmitter} from 'angular2/core';
+import {Component} from 'angular2/core';
+import {WeatherService} from "../services/weatherservice";
 
 @Component({
     selector: 'add-location',
@@ -6,9 +7,6 @@ import {Component,  Output, EventEmitter} from 'angular2/core';
 })
 export class addLocation  {
 
-    @Output() onAdd = new EventEmitter();
-
-    onClick(value) {
-        this.onAdd.emit(value);
+    constructor(private weatherService: WeatherService){
     }
 }

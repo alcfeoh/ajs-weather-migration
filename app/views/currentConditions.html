@@ -10,8 +10,8 @@
     </div>
 
     <div class="col-md-6">
-        <a class="close" (click)="onDeleteClick(location.zip)">&times;</a>
-        <img [src]="iconSrc(location.weather)" />
+        <a class="close" (click)="weatherService?.removeLocation(location.zip)">&times;</a>
+        <img [src]="weatherService?.getWeatherIcon(location.weather)" />
     </div>
 
 </div>

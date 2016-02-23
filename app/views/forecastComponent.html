@@ -5,12 +5,12 @@
 
     <div class="row"  *ngFor="#dailyForecast of location?.forecast?.list">
         <div class="col-md-6">
-            <h4>{{dailyForecast.dt * 1000 }} - {{dailyForecast.weather[0].main}}</h4>
+            <h4>{{dailyForecast.dt * 1000 | date}} - {{dailyForecast.weather[0].main}}</h4>
             Average Temp {{dailyForecast.temp.day}} - Max {{dailyForecast.temp.max}} - Min {{dailyForecast.temp.min}}
         </div>
 
         <div class="col-md-6">
-            <img style="height: 80px;"  [src]="iconSrc(dailyForecast.weather[0])" />
+            <img style="height: 80px;"  [src]="weatherService?.getWeatherIcon(dailyForecast.weather[0])" />
         </div>
 
     </div>
