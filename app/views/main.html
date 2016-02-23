@@ -1,4 +1,4 @@
 <add-location> </add-location>
 
-<current-conditions ng-repeat="location in main.locations" [location]="location" >
+<current-conditions *ngFor="#location of weatherService?.getLocations()" [location]="location" >
 </current-conditions>
