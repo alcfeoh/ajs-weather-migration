@@ -9,6 +9,7 @@ import {currentConditions} from './components/currentconditions';
 import {Forecast} from './components/forecast';
 import {addLocation} from './components/addLocation';
 import {UpgradeAdapter} from 'angular2/upgrade';
+import {ForecastList} from "./components/forecastList";
 
 
 const upgradeAdapter = new UpgradeAdapter();
@@ -27,9 +28,9 @@ angular
     .config(configure)
     .service('WeatherService', upgradeAdapter.downgradeNg2Provider(WeatherService))
     .controller('MainCtrl', MainCtrl)
-    .controller('ForecastCtrl', ForecastCtrl)
     .directive('currentConditions', upgradeAdapter.downgradeNg2Component(currentConditions))
     .directive('forecast', upgradeAdapter.downgradeNg2Component(Forecast))
+    .directive('forecasts', upgradeAdapter.downgradeNg2Component(ForecastList))
     .directive('addLocation', upgradeAdapter.downgradeNg2Component(addLocation));
 
 configure.$inject = ['$routeProvider'];
@@ -40,9 +41,7 @@ function configure($routeProvider) {
             templateUrl: 'views/main.html'
         })
         .when('/forecast', {
-             templateUrl: 'views/forecast.html',
-             controller:  'ForecastCtrl',
-             controllerAs: 'fcast'
+             template: '<forecasts></forecasts>'
         })
         .otherwise({
             redirectTo: '/'
