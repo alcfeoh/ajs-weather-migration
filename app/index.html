@@ -40,7 +40,7 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Current condition</a></li>
-              <li><a ng-href="#/forecast">5-day forecast</a></li>
+              <li><a href="#/forecast">5-day forecast</a></li>
             </ul>
           </div>
         </div>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="container">
-    <div ng-view=""></div>
+      <weather-app></weather-app>
     </div>
 
     <div class="footer">
@@ -69,19 +69,6 @@
        ga('send', 'pageview');
     </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/es6-shim/es6-shim.js"></script>
     <script src="node_modules/es6-promise/dist/es6-promise.js"></script>
@@ -91,6 +78,7 @@
 
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
 
     <script>
