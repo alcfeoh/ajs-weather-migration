@@ -1,6 +1,6 @@
 export class LocationsService {
 
-    public locations:Array = [];
+    public locations:Array<any> = [];
 
     addLocation(location) {
         this.locations.push(location);
